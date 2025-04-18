@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>SIGNUP</title>
+        <link rel="stylesheet" href="static/signUp_page.css">
+    </head>
+    <body>
+        <nav>
+            <div><a href="/login" id="login">Login</a></div>
+            <div><a href="/signup" id="signup">Sign-up</a></div>
+        </nav>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div style="background-color: rgb(173, 81, 81); color: rgb(199, 193, 193);">{{message}}</div>
+        {% else %}
+        <div style="background-color: rgb(81, 173, 122); color: rgb(199, 193, 193);">{{message}}</div>
+        {% endif%}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+
+        <form method="POST">
+            <div><h1>SIGN UP</h1></div>
+            <div>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email" placeholder="enter an active email">
+            </div>
+            <div>
+                <label for="firstname">Firstname</label><br>
+                <input type="text" id="username" name="username" placeholder="enter username">
+            </div>
+            <div>
+                <label for="password1">Password</label><br>
+                <input type="password" id="password1" name="password1" placeholder="enter password">
+            </div>
+            <div>
+                <label for="password2">Confirm password</label><br>
+                <input type="password" id="password2" name="password2" placeholder="confirm password">
+            </div>
+            <div>
+                <button type="submit">SIGN UP</button>
+            </div>
+    </body>
+</html>
